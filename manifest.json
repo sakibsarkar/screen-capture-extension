@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Screen Area Capture",
+  "version": "1.0",
+  "description": "Capture a specific area of the screen from a webpage.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {},
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["html2canvas.min.js", "content.js"]
+    }
+  ],
+
+  "host_permissions": ["<all_urls>"]
+}
